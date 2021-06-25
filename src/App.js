@@ -14,14 +14,17 @@ export default function App() {
     })
   },[])
 
+const renderPeople = people.map((user, id) =>
+  <div class="container">
+  <div class="names" key={id}>{user.name}</div>
+  </div>
+);
+
   return (
     <div>
       <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
-      {people.map((user)=>{
-        console.log(user.name);
-        <li key={user.id}> {user.name} </li>
-      })}
+      {renderPeople}
     </div>
   );
 }
