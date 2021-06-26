@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import Child from "./child.js";
 
 const userData = () => fetch('https://jsonplaceholder.typicode.com/users')
   .then(response => response.json());
@@ -16,7 +17,8 @@ export default function App() {
 
 const renderPeople = people.map((user, id) =>
   <div class="container">
-  <div class="names" key={id}>{user.name}</div>
+    <div class="names" key={id}>{user.name}</div>
+    <div class="id" key={user.name+'-'+id}>{id}</div>
   </div>
 );
 
@@ -25,6 +27,7 @@ const renderPeople = people.map((user, id) =>
       <h1>Hello StackBlitz!</h1>
       <p>Start editing to see some magic happen :)</p>
       {renderPeople}
+      <Child />
     </div>
   );
 }

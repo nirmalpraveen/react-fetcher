@@ -4,11 +4,28 @@ h1, p {
 
 .container {
   display: grid;
-  align-items: center;
-  justify-items: center;
+  align-content: bottom;
   border: 1px solid black;
+  grid-template-areas: 
+  "names id"
+  ;
+  grid-template-rows: 50% 50%;
+  justify-content: space-evenly;
+  grid-column-gap: 50px;
 }
 
-.elements {
+.container:not(:last-child) {
+  border-bottom: 0px;
+}
 
+.names {
+  grid-area: names;
+  align-items: bottom;
+  justify-content: left;
+}
+
+.id{
+  grid-area: id;
+  align-items: bottom;
+  justify-content: right;
 }
